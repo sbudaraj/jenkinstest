@@ -1,0 +1,11 @@
+1. Changed docker-compose.yaml to add/update ports
+	nginx - ports: - "80:80"
+	flaskapp - ports: - "5001:5001"
+	db - ports: - "5432:5432"
+2. Added flask_table to requirements.txt
+3. Added new tamplate success.html to dispay the query results after submiting initial form
+4. Made a few changes to app.py: Import "Table, Col" from flask_table, added new class "ItemTable" and set it to be passed with query data to success template and also app.run to reflect double quotes on host and port 5001.
+
+
+Thought process: I did not know any python, flask, docker, postgress or for that matter much of linux commands..Initially struggled boucing around figuring where issues were but the TOI helped me refocus my effort on understanding how this works..Initially made a forward pass to understand how requests flow from browser to db but did not make progress due to lack of knowledge. While working on backward pass of seeing how data from postgress flows, got more familiar with docker, some terminal commands and docker.. Signed up for a couple of docker and docker+flask courses for 10$ each on udemy that helped me get a better understanding..Then forward pass made lot more sense as I spent a little time understaind how to configure nginx (played a little to diplate static HTML), then how containers talk to each other, how to log into containers to look at logs, databases etc..Once App was up, figuring how to get table to populate data in success page was much easier as it was a more "defined" problem. It really helped to look at logs on flasapp container as it would crash due to errors in my apps.py code but would pin point the line where error was..That helped figure mistakes quicker and resolve them.
+
