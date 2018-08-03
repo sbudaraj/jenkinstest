@@ -1,10 +1,33 @@
 Jenkinsfile (Declarative Pipeline)
+
 pipeline {
-    agent { docker { image 'python:3.5.1' } }
+    agent any
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'python --version'
+                sh '''
+                    cd /home/ubuntu/WebApp
+                    git pull https://github.com/sbudaraj/test
+                    sudo docker build -t webapp_flaskapp:latest .
+                    echo "All good on western front!"
+
+                '''
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'sleep 3'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh '''
+                    cd /home/ubuntu/WebApp
+                    sudo docker container rm -f webapp_flaskapp_1
+                    sudo docker-compose up -d
+                    echo "All good on All fronts!"
+
+                '''
             }
         }
     }
