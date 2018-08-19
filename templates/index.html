@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-    <body>
-        <h1> <font color="FF0000"> Welcome! Hello...Yes!! </font>  </h1>
-        <h2> Please enter items that you would like to sell? </h2>
-        <form method="POST" action="/">
+  <head>
+    <title>Freecycle - sharing econmomy that cares!</title>
+    <link rel="icon" href="static/icon.png" type="image/png">
+    <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+    </style> 
+  </head>
+  <body>
+    <header>
+        <h1 style="text-align:center"><font color="gold">Old is gold</font></h1>
+    </header>
+      <form method="POST" action="/" style="text-align:center; vertical-align:middle">
             {{ form.csrf_token }}
-            {{ form.name.label }} {{ form.name(size=20) }}
-            {{ form.quantity.label }} {{ form.quantity(size=4) }}
-            {{ form.description.label }} {{ form.description(size=4) }}
-            <input type="submit" value="Enter Item">
+            <font color="gold">Item Name</font> {{ form.name(size=20) }}
+            <font color="gold">Quantity</font> {{ form.quantity(size=4) }}
+            <br>
+            <br>
+            <br>
+            <font color="gold">Description</font> {{ form.description(size=37) }}
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <input type="submit" value="Enter Item" style="color: green; font-weight: bold;">
         </form>
-    </body>
+    </div>
+  </body>
 </html>
